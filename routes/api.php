@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/register', [\App\Http\Controllers\Api\AuthController::class, 'register']);
+Route::post('/login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/tasks-all', [\App\Http\Controllers\Api\TaskController::class, 'index']);
+    Route::post('/create-tasks', [\App\Http\Controllers\Api\TaskController::class, 'store']);
+    Route::patch('/update-tasks/{id}', [\App\Http\Controllers\Api\TaskController::class, 'update']);
+    Route::delete('/del-tasks/{id}', [\App\Http\Controllers\Api\TaskController::class, 'del']);
 });

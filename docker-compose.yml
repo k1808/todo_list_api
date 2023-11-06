@@ -51,6 +51,18 @@ services:
                 - '-p${DB_PASSWORD}'
             retries: 3
             timeout: 5s
+    phpmyadmin:
+        image: phpmyadmin
+        restart: always
+        depends_on:
+            - mysql
+        ports:
+            - 8882:80
+        environment:
+            - PMA_ARBITRARY=1
+        networks:
+            # define your network where all containers are connected to each other
+            - sail
     redis:
         image: 'redis:alpine'
         ports:
