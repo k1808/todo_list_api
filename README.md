@@ -7,8 +7,7 @@ php 8.1
 6. sail artisan storage:link
 7. sail artisan migrate --seed
 
-<div style="text-indent: 40px;">
-API:
+1. API:
     Register:
         post: http://localhost:80/api/register/
         headers: Accept-application/json
@@ -16,40 +15,30 @@ API:
               email-test@i.ua
               password-123  
         Response: token
-</div>
-<div style="text-indent: 40px;">
-    Login:
+
+2. Login:
         post: http://localhost:80/api/login/
         headers: Accept-application/json
         email-test@i.ua
         password-123  
         Response: token
-</div>
-<div style="text-indent: 40px;">
-    task all:
+3. task all:
         get: http://localhost:80/api/tasks-all?status=done&priority=2&title=ddd&description=dolorem&sort=created_at=asc,priority=desc,completedAt=asc
         all parameters are optional
-</div>
-<div style="text-indent: 40px;">
-    create tas:
+4. create tas:
         http://localhost:80/api/create-tasks
         body:
             'title' => 'required|string|max:255',
             'priority' => 'required|integer|max:5|min:0',
             'description' => 'nullable',
             'parent_id'=>'nullable'
-</div>
-<div style="text-indent: 40px;">       
-    update-task:
+5.  update-task:
          http://localhost:80/api/update-tasks/22
         'title' => 'nullable|max:255',
         'priority' => 'nullable|max:5|min:0',
         'description' => 'nullable',
         'parent_id'=>'nullable|min:1',
         'status'=>'nullable',
-</div>
-<div style="text-indent: 40px;">
-    deleted-task:
+6. deleted-task:
         http://localhost:80/api/del-tasks/22
 
-</div>
