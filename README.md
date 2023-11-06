@@ -1,11 +1,11 @@
 php 8.1
-cp .env.example .env
-alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
-sail up -d
-sail composer update
-sail artisan key:generate
-sail artisan storage:link
-sail artisan migrate --seed
+1. cp .env.example .env
+2. alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+3. sail up -d
+4. sail composer update
+5. sail artisan key:generate
+6. sail artisan storage:link
+7. sail artisan migrate --seed
 
 
 API:
